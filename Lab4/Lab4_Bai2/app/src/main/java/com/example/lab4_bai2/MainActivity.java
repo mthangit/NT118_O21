@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initValue();
 
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_POWER_CONNECTED);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
 
         registerReceiver(

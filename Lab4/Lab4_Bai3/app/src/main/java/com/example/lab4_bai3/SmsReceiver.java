@@ -30,21 +30,18 @@ public class SmsReceiver extends BroadcastReceiver {
                 SmsMessage[] messages = new SmsMessage[pdus.length];
                 String format = bundle.getString("format");
                 for (int i = 0; i < pdus.length; i++) {
-
                     if (Build.VERSION.SDK_INT >= 23) {
                         messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i], format);
                     } else {
                         messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                     }
                 }
-
                 ArrayList<String> addresses = new ArrayList<>(messages.length);
                 for (SmsMessage msg : messages) {
                     if (msg.getMessageBody().toLowerCase().contains(queryString)) {
                         addresses.add(msg.getOriginatingAddress());
                     }
                 }
-
                 if (addresses.size() > 0) {
                     if (!MainActivity.isRunning) {
                         Intent mainActivityIntent = new Intent(context, MainActivity.class);

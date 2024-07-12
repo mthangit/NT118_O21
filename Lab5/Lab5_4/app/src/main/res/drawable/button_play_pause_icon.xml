@@ -1,0 +1,6 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Icon cho trạng thái play -->
+    <item android:drawable="@drawable/icon_play" android:id="@+id/icon_play"/>
+    <!-- Icon cho trạng thái pause, ẩn đi ban đầu -->
+    <item android:drawable="@drawable/icon_pause" android:id="@+id/icon_pause" android:visibility="gone"/>
+</layer-list>

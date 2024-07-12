@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         btnMayday = (Button) findViewById(R.id.btn_mayday);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +55,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         reentrantLock.unlock();
 
-
         SmsManager smsManager = SmsManager.getDefault();
-
         smsManager.sendTextMessage(to, null, response, null, null);
-
     }
 
     private void respond(boolean ok) {
@@ -84,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 reentrantLock.unlock();
             }
-
             if (swAutoResponse.isChecked()) respond(true);
         }
     }
